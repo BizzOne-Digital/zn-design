@@ -16,7 +16,7 @@ export async function generateMetadata() {
     description:
       "Meet Zafreen and learn about ZN Design — a creative studio focused on thoughtful brand identities and meaningful visual design.",
     path: "/about",
-    image: settings.aboutImage ?? { url: aboutHeroImage, alt: "ZN Design studio workspace" },
+    image: settings.aboutImage ?? aboutHeroImage,
   });
 }
 
