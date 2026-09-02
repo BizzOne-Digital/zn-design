@@ -21,6 +21,14 @@ function unsplashImage(
   };
 }
 
+function localImage(path: string, alt: string): MediaImage {
+  return {
+    url: path,
+    publicId: path.replace(/^\//, "").replace(/\//g, "-"),
+    alt,
+  };
+}
+
 const siteSettingsData = {
   businessName: "ZN Design",
   contactPerson: "Zafreen Nihmathullah",
@@ -140,6 +148,10 @@ const servicesData = [
       "Brand usage guidelines",
       "Social profile assets",
     ],
+    featuredImage: localImage(
+      "/images/services/logo-brand-identity.jpg",
+      "Logo and brand identity design showcase",
+    ),
     displayOrder: 1,
     featured: true,
   },
@@ -156,6 +168,10 @@ const servicesData = [
       "Highlight covers and profile assets",
       "Editable source files",
     ],
+    featuredImage: localImage(
+      "/images/services/social-media.jpg",
+      "Social media design templates on devices",
+    ),
     displayOrder: 2,
     featured: true,
   },
@@ -172,6 +188,10 @@ const servicesData = [
       "Source files for future edits",
       "Vendor handoff support",
     ],
+    featuredImage: localImage(
+      "/images/services/print.jpg",
+      "Print stationery and collateral design",
+    ),
     displayOrder: 3,
     featured: false,
   },
@@ -188,6 +208,10 @@ const servicesData = [
       "Production-ready files",
       "Mockup visuals",
     ],
+    featuredImage: localImage(
+      "/images/services/packaging.jpg",
+      "Luxury product packaging design",
+    ),
     displayOrder: 4,
     featured: false,
   },
@@ -204,6 +228,10 @@ const servicesData = [
       "High-resolution exports",
       "Print vendor specifications",
     ],
+    featuredImage: localImage(
+      "/images/services/banner.jpg",
+      "Event banner and signage design",
+    ),
     displayOrder: 5,
     featured: false,
   },
@@ -220,6 +248,10 @@ const servicesData = [
       "Presentation templates",
       "Asset library organization",
     ],
+    featuredImage: localImage(
+      "/images/services/visual.jpg",
+      "Visual design mood board and materials",
+    ),
     displayOrder: 6,
     featured: false,
   },
@@ -236,6 +268,10 @@ const servicesData = [
       "Revision rounds as agreed",
       "Final export package",
     ],
+    featuredImage: localImage(
+      "/images/services/custom-graphic.jpg",
+      "Custom branding and stationery design",
+    ),
     displayOrder: 7,
     featured: false,
   },
@@ -317,9 +353,9 @@ const portfolioProjectsData = [
     client: "Bloom Botanicals",
     year: 2025,
     services: ["Brand Identity", "Logo Design", "Packaging"],
-    coverImage: unsplashImage(
-      "photo-1466781783364-36c968e096c5",
-      "Botanical brand mood board with plants and packaging",
+    coverImage: localImage(
+      "/images/portfolio/bloom-botanicals-rebrand.jpg",
+      "Botanical brand sketchbook and illustration process",
     ),
     gallery: [
       unsplashImage(
@@ -385,9 +421,9 @@ const portfolioProjectsData = [
     client: "Northwind Coffee Co.",
     year: 2024,
     services: ["Logo Design", "Brand Marks"],
-    coverImage: unsplashImage(
-      "photo-1447933601403-0c6688de566e",
-      "Coffee cup with latte art on wooden table",
+    coverImage: localImage(
+      "/images/portfolio/northwind-coffee-mark.jpg",
+      "ZN monogram logo on premium stationery",
     ),
     gallery: [
       unsplashImage(
@@ -437,9 +473,9 @@ const portfolioProjectsData = [
     client: "Luxe Skincare (sample)",
     year: 2025,
     services: ["Social Media", "Visual Design"],
-    coverImage: unsplashImage(
-      "photo-1556228720-195a672e8a03",
-      "Skincare products on neutral background",
+    coverImage: localImage(
+      "/images/portfolio/luxe-skincare-launch-campaign.jpg",
+      "Social media design grid on tablet mockup",
     ),
     gallery: [
       unsplashImage(
@@ -490,9 +526,9 @@ const portfolioProjectsData = [
     client: "Hearth & Crumb Bakery",
     year: 2024,
     services: ["Print Design"],
-    coverImage: unsplashImage(
-      "photo-1509440159596-0249088772ff",
-      "Fresh bread on bakery counter",
+    coverImage: localImage(
+      "/images/portfolio/artisan-bakery-menu-suite.jpg",
+      "Branded stationery and retail collateral suite",
     ),
     gallery: [
       unsplashImage(
@@ -527,9 +563,9 @@ const portfolioProjectsData = [
     client: "Trailbite Co.",
     year: 2025,
     services: ["Packaging", "Visual Design"],
-    coverImage: unsplashImage(
-      "photo-1606312619070-d48b4cbc6b1d",
-      "Snack packaging on retail shelf",
+    coverImage: localImage(
+      "/images/portfolio/clean-label-snack-packaging.jpg",
+      "Luxury snack packaging pouch lineup",
     ),
     gallery: [
       unsplashImage(
@@ -573,9 +609,9 @@ const portfolioProjectsData = [
     client: "Summit East (sample)",
     year: 2025,
     services: ["Banner Design", "Visual Design"],
-    coverImage: unsplashImage(
-      "photo-1540575467063-178a50c2df87",
-      "Conference hall with stage lighting",
+    coverImage: localImage(
+      "/images/portfolio/tech-conference-hero-signage.jpg",
+      "Roll-up banner and event signage mockup",
     ),
     gallery: [
       unsplashImage(
@@ -602,6 +638,34 @@ const portfolioProjectsData = [
     status: "published" as const,
     featured: false,
     displayOrder: 6,
+    isSample: true,
+  },
+  {
+    title: "Editorial Type Collection",
+    slug: "editorial-type-collection",
+    category: "Visual Design" as const,
+    shortDescription:
+      "A series of typographic art prints blending serif letterforms with geometric color blocks.",
+    client: "ZN Design Studio",
+    year: 2025,
+    services: ["Visual Design", "Custom Graphic"],
+    coverImage: localImage(
+      "/images/portfolio/editorial-type-collection.jpg",
+      "Editorial typographic art print series",
+    ),
+    gallery: [],
+    contentBlocks: [
+      {
+        type: "quote" as const,
+        displayOrder: 0,
+        quote:
+          "Each print pairs classic serif typography with blush and gold geometric accents for a gallery-ready finish.",
+        attribution: "ZN Design",
+      },
+    ] satisfies ContentBlock[],
+    status: "published" as const,
+    featured: true,
+    displayOrder: 7,
     isSample: true,
   },
 ];

@@ -154,12 +154,33 @@ npm run test:watch
 
 ## Production build
 
+Verify everything before deploy:
+
+```bash
+npm run production:check
+```
+
+This runs lint, tests, and a production build in one step.
+
+Start the production server locally:
+
 ```bash
 npm run build
 npm run start
 ```
 
 Set `NEXT_PUBLIC_SITE_URL` to your production domain before building so sitemaps, metadata, and email links resolve correctly.
+
+### First-time production database setup
+
+After deploying env vars to your host:
+
+```bash
+npm run seed
+npm run create-admin
+```
+
+Then sign in at `/admin/login`, replace sample content, and change the admin password from the default.
 
 ---
 
@@ -214,6 +235,7 @@ The seed script includes starter **Privacy Policy** and **Terms of Service** con
 | `test` | `npm test` | Run Vitest test suite |
 | `seed` | `npm run seed` | Seed database with default content |
 | `create-admin` | `npm run create-admin` | Create or update admin user |
+| `production:check` | `npm run production:check` | Lint, test, and production build |
 
 ---
 

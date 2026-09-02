@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
+import { resolveServiceFeaturedImage } from "@/config/media";
 import type { SerializedService } from "@/lib/data";
 import { Badge } from "@/components/ui/Badge";
 
@@ -13,6 +14,8 @@ export function ServiceSection({
   service,
   showInquireCta = true,
 }: ServiceSectionProps) {
+  const featuredImage = resolveServiceFeaturedImage(service);
+
   return (
     <article className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
       <div>
@@ -76,11 +79,11 @@ export function ServiceSection({
       </div>
 
       <div className="space-y-4">
-        {service.featuredImage ? (
+        {featuredImage ? (
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-cream">
             <Image
-              src={service.featuredImage.url}
-              alt={service.featuredImage.alt || service.title}
+              src={featuredImage.url}
+              alt={featuredImage.alt || service.title}
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 40vw"

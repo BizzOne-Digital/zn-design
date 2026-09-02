@@ -56,7 +56,6 @@ const ServiceSchema = new Schema<IService>(
   },
 );
 
-ServiceSchema.index({ slug: 1 }, { unique: true });
 ServiceSchema.index({ active: 1, displayOrder: 1 });
 ServiceSchema.index({ featured: 1, active: 1 });
 

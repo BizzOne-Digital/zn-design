@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { buildPageMetadata } from "@/lib/seo";
+import { resolveProjectCoverImage } from "@/config/media";
 import {
   getAdjacentProjects,
   getAllProjectSlugs,
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps) {
     title: project.seoTitle || project.title,
     description: project.seoDescription || project.shortDescription,
     path: `/work/${project.slug}`,
-    image: project.coverImage,
+    image: resolveProjectCoverImage(project),
     type: "article",
   });
 }
@@ -75,6 +76,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   }
 
   const { prev, next } = await getAdjacentProjects(slug);
+  const coverImage = resolveProjectCoverImage(project);
 
   return (
     <PageShell as="article">
@@ -119,8 +121,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
         <div className="relative mb-16 aspect-[16/9] overflow-hidden rounded-[2rem] bg-cream">
           <Image
-            src={project.coverImage.url}
-            alt={project.coverImage.alt || project.title}
+            src={coverImage.url}
+            alt={coverImage.alt || project.title}
             fill
             priority
             className="object-cover"

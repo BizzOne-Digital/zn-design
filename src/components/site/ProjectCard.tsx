@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { resolveProjectCoverImage } from "@/config/media";
 import type { SerializedProject } from "@/lib/data";
 import { getCategoryLabel } from "@/config/categories";
 import { Badge } from "@/components/ui/Badge";
@@ -9,6 +10,8 @@ export interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const coverImage = resolveProjectCoverImage(project);
+
   return (
     <article className="group">
       <Link
@@ -20,8 +23,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
           style={{ aspectRatio: project.aspectRatio || "4/5" }}
         >
           <Image
-            src={project.coverImage.url}
-            alt={project.coverImage.alt || project.title}
+            src={coverImage.url}
+            alt={coverImage.alt || project.title}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"

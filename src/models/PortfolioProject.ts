@@ -90,7 +90,6 @@ const PortfolioProjectSchema = new Schema<IPortfolioProject>(
   },
 );
 
-PortfolioProjectSchema.index({ slug: 1 }, { unique: true });
 PortfolioProjectSchema.index({ status: 1, displayOrder: 1 });
 PortfolioProjectSchema.index({ category: 1, status: 1 });
 PortfolioProjectSchema.index({ featured: 1, status: 1, displayOrder: 1 });

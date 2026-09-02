@@ -32,8 +32,6 @@ const AdminUserSchema = new Schema<IAdminUser>(
   },
 );
 
-AdminUserSchema.index({ email: 1 }, { unique: true });
-
 const AdminUser: Model<IAdminUser> =
   (mongoose.models.AdminUser as Model<IAdminUser>) ||
   mongoose.model<IAdminUser>("AdminUser", AdminUserSchema);

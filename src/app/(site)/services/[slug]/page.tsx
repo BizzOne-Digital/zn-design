@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { buildPageMetadata } from "@/lib/seo";
+import { resolveServiceFeaturedImage } from "@/config/media";
 import {
   getAllServiceSlugs,
   getServiceBySlug,
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: ServiceDetailPageProps) {
     title: service.seoTitle || service.title,
     description: service.seoDescription || service.shortDescription,
     path: `/services/${service.slug}`,
-    image: service.featuredImage,
+    image: resolveServiceFeaturedImage(service),
   });
 }
 

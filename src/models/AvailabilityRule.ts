@@ -55,8 +55,6 @@ const AvailabilityRuleSchema = new Schema<IAvailabilityRule>(
   },
 );
 
-AvailabilityRuleSchema.index({ singletonKey: 1 }, { unique: true });
-
 const AvailabilityRule: Model<IAvailabilityRule> =
   (mongoose.models.AvailabilityRule as Model<IAvailabilityRule>) ||
   mongoose.model<IAvailabilityRule>("AvailabilityRule", AvailabilityRuleSchema);

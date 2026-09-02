@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { resolveProjectCoverImage } from "@/config/media";
 import type { SerializedProject } from "@/lib/data";
 import { getCategoryLabel } from "@/config/categories";
 import { cn } from "@/lib/utils";
@@ -42,6 +43,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
         ) : (
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-12">
             {projects.map((project, index) => {
+              const coverImage = resolveProjectCoverImage(project);
               const spanClass =
                 index % 5 === 0
                   ? "xl:col-span-7"
@@ -69,8 +71,8 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
                       }}
                     >
                       <Image
-                        src={project.coverImage.url}
-                        alt={project.coverImage.alt || project.title}
+                        src={coverImage.url}
+                        alt={coverImage.alt || project.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
