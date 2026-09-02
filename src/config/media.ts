@@ -2,6 +2,8 @@ import type { MediaImage } from "@/types";
 
 export const aboutHeroImage = "/images/about/about-hero.jpg";
 
+export const manifestoBackgroundImage = "/images/manifesto-background.jpg";
+
 const serviceImagePaths: Record<string, string> = {
   "logo-brand-identity": "/images/services/logo-brand-identity.jpg",
   "social-media": "/images/services/social-media.jpg",
