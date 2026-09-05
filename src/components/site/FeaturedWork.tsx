@@ -11,13 +11,15 @@ export interface FeaturedWorkProps {
 }
 
 export function FeaturedWork({ projects }: FeaturedWorkProps) {
+  const featured = projects.slice(0, 3);
+
   return (
     <section className="section-padding">
       <div className="container-editorial">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-taupe">
-              Selected Work
+              Portfolio
             </p>
             <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.5rem)] leading-tight text-ink">
               Featured projects
@@ -27,12 +29,12 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
             href="/work"
             className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-ink underline-gold"
           >
-            View all work
+            View full portfolio
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
 
-        {projects.length === 0 ? (
+        {featured.length === 0 ? (
           <div className="rounded-3xl border border-dashed border-taupe/30 bg-cream/40 px-8 py-16 text-center">
             <p className="font-display text-2xl text-ink">Portfolio coming soon</p>
             <p className="mt-3 text-sm text-soft-black/70">
@@ -41,19 +43,13 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
             </p>
           </div>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-12">
-            {projects.map((project, index) => {
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {featured.map((project, index) => {
               const coverImage = resolveProjectCoverImage(project);
               const spanClass =
-                index % 5 === 0
-                  ? "xl:col-span-7"
-                  : index % 5 === 1
-                    ? "xl:col-span-5"
-                    : index % 5 === 2
-                      ? "xl:col-span-5"
-                      : index % 5 === 3
-                        ? "xl:col-span-4"
-                        : "xl:col-span-3";
+                featured.length === 3 && index === 0
+                  ? "md:col-span-2 lg:col-span-1"
+                  : "";
 
               return (
                 <article
@@ -74,7 +70,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
                         src={coverImage.url}
                         alt={coverImage.alt || project.title}
                         fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
@@ -88,6 +84,10 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
                         <p className="mt-2 line-clamp-2 text-sm text-ivory/80">
                           {project.shortDescription}
                         </p>
+                        <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-pale-gold">
+                          View Project
+                          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                        </span>
                       </div>
                     </div>
                   </Link>

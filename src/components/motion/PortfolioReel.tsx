@@ -71,7 +71,7 @@ export function PortfolioReel({ items, className }: PortfolioReelProps) {
     >
       <div className="absolute left-6 top-8 z-10 md:left-12">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-light">
-          Selected Work
+          Selected Portfolio
         </p>
         <h2 className="mt-2 font-display text-3xl md:text-5xl">In motion</h2>
       </div>

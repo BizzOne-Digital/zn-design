@@ -88,7 +88,7 @@ function mergeSiteSettings(
     heroCtaSecondary: settings?.heroCtaSecondary ?? siteConfig.hero.ctaSecondary,
     aboutText:
       settings?.aboutText ??
-      "ZN Design is a creative graphic design studio helping small businesses, entrepreneurs, and growing brands build strong and memorable visual identities.",
+      "Hi, I'm Zafreen — the designer behind ZN Design. I'm a New York–based graphic designer helping small businesses and entrepreneurs build brands that feel authentic, polished, and memorable.",
     introOfferText:
       settings?.introOfferText ??
       "New clients may contact ZN Design for introductory package options. Custom packages are available based on individual branding and design needs.",

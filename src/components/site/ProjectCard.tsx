@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { resolveProjectCoverImage } from "@/config/media";
 import type { SerializedProject } from "@/lib/data";
 import { getCategoryLabel } from "@/config/categories";
@@ -50,6 +51,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
               {project.services.slice(0, 3).join(" · ")}
             </p>
           ) : null}
+          <p className="inline-flex items-center gap-1.5 pt-1 text-xs font-semibold uppercase tracking-[0.14em] text-ink group-hover:text-gold">
+            View Project
+            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </p>
         </div>
       </Link>
     </article>

@@ -24,7 +24,7 @@ export async function generateMetadata() {
 export default async function HomePage() {
   const [settings, featuredProjects, services] = await Promise.all([
     getMergedSettings(),
-    getFeaturedProjects(8),
+    getFeaturedProjects(3),
     getFeaturedServices(6),
   ]);
 

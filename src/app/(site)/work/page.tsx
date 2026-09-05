@@ -7,7 +7,7 @@ import { isValidProjectCategory } from "@/config/categories";
 import type { ProjectCategory } from "@/types";
 
 export const metadata = buildPageMetadata({
-  title: "Work",
+  title: "Portfolio",
   description:
     "Explore the ZN Design portfolio — branding, logo design, social media, print, packaging, and visual design projects.",
   path: "/work",
@@ -43,7 +43,7 @@ export default async function WorkPage({ searchParams }: WorkPageProps) {
             Portfolio
           </p>
           <h1 className="mt-3 font-display text-[clamp(2.5rem,5vw,4rem)] leading-tight text-ink">
-            Selected work & case studies
+            Selected portfolio & case studies
           </h1>
           <p className="mt-4 text-base leading-relaxed text-soft-black/75">
             A curated collection of branding, visual design, and creative

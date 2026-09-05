@@ -33,7 +33,7 @@ export default function NotFound() {
           href="/work"
           className="inline-flex h-12 items-center rounded-full border border-ink/20 px-6 text-sm font-semibold uppercase tracking-[0.14em] text-ink"
         >
-          View Work
+          View Portfolio
         </Link>
       </div>
     </div>

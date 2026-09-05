@@ -35,7 +35,7 @@ const siteSettingsData = {
   email: "zafreennihmathullah@gmail.com",
   phone: "(508) 851-7086",
   phoneLink: "tel:+15088517086",
-  address: "Massachusetts, United States",
+  address: "New York, United States",
   socialLinks: {
     instagram: "",
     behance: "",
@@ -49,7 +49,7 @@ const siteSettingsData = {
   heroCtaPrimary: "Book a consultation",
   heroCtaSecondary: "View portfolio",
   aboutText:
-    "ZN Design is a creative studio led by Zafreen Nihmathullah, helping brands communicate with clarity and confidence. Every project blends strategic thinking with polished visual execution — whether you need a new logo, a full brand system, campaign visuals, or ongoing creative support.",
+    "Hi, I'm Zafreen — the designer behind ZN Design.\n\nI'm a New York–based graphic designer passionate about helping small businesses and entrepreneurs build brands that feel authentic, polished, and memorable. From logo design and brand identity to social media, print, and packaging, I partner closely with each client to translate their vision into thoughtful visual design.\n\nWhen I'm not designing, you'll find me exploring new creative inspiration, refining brand systems, and collaborating with founders who are ready to stand out.",
   introOfferText:
     "Every project is scoped individually. Packages below are starting points — final pricing depends on scope, timeline, and deliverables. Request a custom quote to get started.",
   bookingTimezone: TIMEZONE,
@@ -65,7 +65,7 @@ const siteSettingsData = {
       "logo design",
       "social media design",
       "packaging design",
-      "Massachusetts designer",
+      "New York graphic designer",
     ],
   },
   privacyContent: `# Privacy Policy
@@ -136,7 +136,7 @@ Questions about these terms: zafreennihmathullah@gmail.com`,
 
 const servicesData = [
   {
-    title: "Logo & Brand Identity",
+    title: "Logo & Brand Identity Design",
     slug: "logo-brand-identity",
     shortDescription:
       "Distinctive logos and cohesive brand systems that make your business memorable.",
@@ -156,7 +156,7 @@ const servicesData = [
     featured: true,
   },
   {
-    title: "Social Media",
+    title: "Social Media Design",
     slug: "social-media",
     shortDescription:
       "Scroll-stopping templates and campaign visuals for consistent social presence.",
@@ -176,7 +176,7 @@ const servicesData = [
     featured: true,
   },
   {
-    title: "Print",
+    title: "Print Design",
     slug: "print",
     shortDescription:
       "Business cards, brochures, flyers, and print-ready collateral with polished layouts.",
@@ -196,7 +196,7 @@ const servicesData = [
     featured: false,
   },
   {
-    title: "Packaging",
+    title: "Packaging Design",
     slug: "packaging",
     shortDescription:
       "Product packaging and label design that stands out on the shelf.",
@@ -216,7 +216,7 @@ const servicesData = [
     featured: false,
   },
   {
-    title: "Banner",
+    title: "Banner & Large-Format Design",
     slug: "banner",
     shortDescription:
       "Event banners, signage, and large-format graphics built for impact.",
@@ -256,7 +256,7 @@ const servicesData = [
     featured: false,
   },
   {
-    title: "Custom Graphic",
+    title: "Custom Graphic Design",
     slug: "custom-graphic",
     shortDescription:
       "Tailored graphic design for unique projects outside standard packages.",

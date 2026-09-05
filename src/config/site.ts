@@ -5,7 +5,7 @@ export const siteConfig = {
   email: "zafreennihmathullah@gmail.com",
   phone: "(508) 851-7086",
   phoneLink: "+15088517086",
-  address: "",
+  address: "New York, United States",
   timezone: "America/New_York",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   social: {
@@ -25,6 +25,7 @@ export const siteConfig = {
       "social media design",
       "packaging design",
       "brand identity",
+      "New York graphic designer",
     ],
   },
   hero: {
@@ -32,11 +33,11 @@ export const siteConfig = {
     headline: "Creative Design That Brings Your Vision to Life",
     support:
       "ZN Design creates thoughtful brand identities and visual experiences for small businesses, entrepreneurs, and growing brands—turning ideas into work that feels clear, distinctive, and memorable.",
-    ctaPrimary: "Explore My Work",
+    ctaPrimary: "Explore Portfolio",
     ctaSecondary: "Start a Project",
   },
   about:
-    "ZN Design is a creative graphic design studio helping small businesses, entrepreneurs, and growing brands build strong and memorable visual identities. The studio specializes in modern, professional, and meaningful design that communicates each brand's unique story and connects with its audience.",
+    "Hi, I'm Zafreen — the designer behind ZN Design. I'm a New York–based graphic designer helping small businesses and entrepreneurs build brands that feel authentic, polished, and memorable.",
   pricingStatement:
     "Every project is different. Pricing is shaped by the scope, complexity, deliverables, and timeline. Share your vision to receive a custom quote designed around what your brand actually needs.",
   introOffer:
