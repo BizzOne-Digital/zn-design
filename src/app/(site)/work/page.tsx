@@ -45,7 +45,7 @@ export default async function WorkPage({ searchParams }: WorkPageProps) {
   ]);
 
   return (
-    <PageShell>
+    <PageShell portfolio>
       <div className="mb-8 max-w-3xl sm:mb-12">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-taupe">
           Portfolio

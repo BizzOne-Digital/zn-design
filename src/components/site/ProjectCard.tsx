@@ -8,10 +8,16 @@ import { Badge } from "@/components/ui/Badge";
 
 export interface ProjectCardProps {
   project: SerializedProject;
+  variant?: "default" | "portfolio";
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  variant = "default",
+}: ProjectCardProps) {
   const coverImage = resolveProjectCoverImage(project);
+  const isPortfolio = variant === "portfolio";
+  const imageAspect = project.aspectRatio || (isPortfolio ? "16/10" : "4/3");
 
   return (
     <article className="group">
@@ -21,14 +27,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
       >
         <div
           className="relative overflow-hidden"
-          style={{ aspectRatio: project.aspectRatio || "4/3" }}
+          style={{ aspectRatio: imageAspect }}
         >
           <Image
             src={coverImage.url}
             alt={coverImage.alt || project.title}
             fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-contain bg-cream p-4 transition-transform duration-700 group-hover:scale-[1.02] sm:p-5"
+            sizes={
+              isPortfolio
+                ? "(max-width: 768px) 100vw, 50vw"
+                : "(max-width: 768px) 100vw, 33vw"
+            }
+            className={
+              isPortfolio
+                ? "object-contain bg-cream p-1 transition-transform duration-700 group-hover:scale-[1.01] sm:p-2"
+                : "object-contain bg-cream p-4 transition-transform duration-700 group-hover:scale-[1.02] sm:p-5"
+            }
           />
         </div>
         <div className="space-y-3 p-5">

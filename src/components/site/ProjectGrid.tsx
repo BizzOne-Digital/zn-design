@@ -119,9 +119,13 @@ export function ProjectGrid({
           <p className="mb-6 text-sm text-taupe">
             Showing {projects.length} of {total} projects
           </p>
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:gap-10">
             {projects.map((project) => (
-              <ProjectCard key={project._id} project={project} />
+              <ProjectCard
+                key={project._id}
+                project={project}
+                variant="portfolio"
+              />
             ))}
           </div>
         </>

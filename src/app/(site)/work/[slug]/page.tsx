@@ -79,7 +79,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const coverImage = resolveProjectCoverImage(project);
 
   return (
-    <PageShell as="article">
+    <PageShell as="article" portfolio>
         <header className="mb-12 max-w-4xl">
           <div className="flex flex-wrap items-center gap-3">
             <Badge variant="gold">{getCategoryLabel(project.category)}</Badge>

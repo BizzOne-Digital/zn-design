@@ -14,6 +14,8 @@
   --foreground: var(--ink);
   --page-gutter: clamp(1rem, 2.5vw, 2.25rem);
   --container-max: 96rem;
+  --container-portfolio-max: 112rem;
+  --page-gutter-portfolio: clamp(0.75rem, 1.5vw, 1.75rem);
   --header-height: 5rem;
 }
 
@@ -114,6 +116,13 @@ body {
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--page-gutter);
+}
+
+.container-portfolio {
+  width: 100%;
+  max-width: var(--container-portfolio-max);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter-portfolio);
 }
 
 .prose-safe {

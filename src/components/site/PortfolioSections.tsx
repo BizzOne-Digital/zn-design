@@ -35,9 +35,9 @@ export function PortfolioSections({ sections }: PortfolioSectionsProps) {
           >
             {section.title || getPortfolioSectionTitle(section.key)}
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:gap-10">
             {section.projects.map((project) => (
-              <ProjectCard key={project._id} project={project} />
+              <ProjectCard key={project._id} project={project} variant="portfolio" />
             ))}
           </div>
         </section>
