@@ -150,7 +150,7 @@ const servicesData = [
     ],
     featuredImage: localImage(
       "/images/services/logo-brand-identity.jpg",
-      "Logo and brand identity design showcase",
+      "Logo design showcase featuring Serendip, Comfort Solution, Asian Food, and Brisa Cafe",
     ),
     displayOrder: 1,
     featured: true,

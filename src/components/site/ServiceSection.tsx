@@ -16,6 +16,7 @@ export function ServiceSection({
 }: ServiceSectionProps) {
   const featuredImage = resolveServiceFeaturedImage(service);
   const wideShowcaseSlugs = new Set([
+    "logo-brand-identity",
     "social-media",
     "packaging",
     "banner",
