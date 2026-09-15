@@ -10,7 +10,7 @@ const serviceImagePaths: Record<string, string> = {
   print: "/images/services/print.jpg",
   packaging: "/images/services/packaging.jpg",
   banner: "/images/services/banner.jpg",
-  visual: "/images/services/visual.jpg",
+  visual: "/images/services/visual.png",
   "custom-graphic": "/images/services/custom-graphic.jpg",
 };
 

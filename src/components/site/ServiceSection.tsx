@@ -17,6 +17,7 @@ export function ServiceSection({
   const featuredImage = resolveServiceFeaturedImage(service);
   const wideShowcaseSlugs = new Set(["social-media", "packaging", "banner"]);
   const isWideShowcase = wideShowcaseSlugs.has(service.slug);
+  const isContainedPortrait = service.slug === "visual";
 
   return (
     <article className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
@@ -94,7 +95,7 @@ export function ServiceSection({
               alt={featuredImage.alt || service.title}
               fill
               className={
-                isWideShowcase
+                isWideShowcase || isContainedPortrait
                   ? "object-contain p-3 sm:p-5"
                   : "object-cover"
               }

@@ -249,8 +249,8 @@ const servicesData = [
       "Asset library organization",
     ],
     featuredImage: localImage(
-      "/images/services/visual.jpg",
-      "Visual design mood board and materials",
+      "/images/services/visual.png",
+      "Underwater vector illustration visual design sample",
     ),
     displayOrder: 6,
     featured: false,
