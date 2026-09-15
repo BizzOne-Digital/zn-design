@@ -15,7 +15,12 @@ export function ServiceSection({
   showInquireCta = true,
 }: ServiceSectionProps) {
   const featuredImage = resolveServiceFeaturedImage(service);
-  const wideShowcaseSlugs = new Set(["social-media", "packaging", "banner"]);
+  const wideShowcaseSlugs = new Set([
+    "social-media",
+    "packaging",
+    "banner",
+    "custom-graphic",
+  ]);
   const isWideShowcase = wideShowcaseSlugs.has(service.slug);
   const isContainedPortrait = service.slug === "visual";
 

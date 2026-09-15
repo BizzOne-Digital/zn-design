@@ -270,7 +270,7 @@ const servicesData = [
     ],
     featuredImage: localImage(
       "/images/services/custom-graphic.jpg",
-      "Custom branding and stationery design",
+      "Asian Food brand applications and packaging design mockup",
     ),
     displayOrder: 7,
     featured: false,
