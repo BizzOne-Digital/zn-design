@@ -210,7 +210,7 @@ const servicesData = [
     ],
     featuredImage: localImage(
       "/images/services/packaging.jpg",
-      "Luxury product packaging design",
+      "Serendip Tea Co. lifestyle packaging and brand applications mockup",
     ),
     displayOrder: 4,
     featured: false,
