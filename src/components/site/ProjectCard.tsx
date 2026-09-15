@@ -17,7 +17,7 @@ export function ProjectCard({
 }: ProjectCardProps) {
   const coverImage = resolveProjectCoverImage(project);
   const isPortfolio = variant === "portfolio";
-  const imageAspect = project.aspectRatio || (isPortfolio ? "16/10" : "4/3");
+  const imageAspect = project.aspectRatio || "4/3";
 
   return (
     <article className="group">
@@ -25,26 +25,31 @@ export function ProjectCard({
         href={`/work/${project.slug}`}
         className="block overflow-hidden rounded-[1.5rem] bg-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
       >
-        <div
-          className="relative overflow-hidden"
-          style={{ aspectRatio: imageAspect }}
-        >
-          <Image
-            src={coverImage.url}
-            alt={coverImage.alt || project.title}
-            fill
-            sizes={
-              isPortfolio
-                ? "(max-width: 768px) 100vw, 50vw"
-                : "(max-width: 768px) 100vw, 33vw"
-            }
-            className={
-              isPortfolio
-                ? "object-contain bg-cream p-1 transition-transform duration-700 group-hover:scale-[1.01] sm:p-2"
-                : "object-contain bg-cream p-4 transition-transform duration-700 group-hover:scale-[1.02] sm:p-5"
-            }
-          />
-        </div>
+        {isPortfolio ? (
+          <div className="overflow-hidden bg-cream leading-none">
+            <Image
+              src={coverImage.url}
+              alt={coverImage.alt || project.title}
+              width={1600}
+              height={1200}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.01]"
+            />
+          </div>
+        ) : (
+          <div
+            className="relative overflow-hidden"
+            style={{ aspectRatio: imageAspect }}
+          >
+            <Image
+              src={coverImage.url}
+              alt={coverImage.alt || project.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-contain bg-cream p-4 transition-transform duration-700 group-hover:scale-[1.02] sm:p-5"
+            />
+          </div>
+        )}
         <div className="space-y-3 p-5">
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="outline">{getCategoryLabel(project.category)}</Badge>
