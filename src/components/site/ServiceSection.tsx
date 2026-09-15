@@ -15,6 +15,7 @@ export function ServiceSection({
   showInquireCta = true,
 }: ServiceSectionProps) {
   const featuredImage = resolveServiceFeaturedImage(service);
+  const isWideShowcase = service.slug === "social-media";
 
   return (
     <article className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
@@ -80,12 +81,22 @@ export function ServiceSection({
 
       <div className="space-y-4">
         {featuredImage ? (
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-cream">
+          <div
+            className={
+              isWideShowcase
+                ? "relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-cream sm:aspect-[3/2]"
+                : "relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-cream"
+            }
+          >
             <Image
               src={featuredImage.url}
               alt={featuredImage.alt || service.title}
               fill
-              className="object-cover"
+              className={
+                isWideShowcase
+                  ? "object-contain p-3 sm:p-5"
+                  : "object-cover"
+              }
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
           </div>

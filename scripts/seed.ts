@@ -170,7 +170,7 @@ const servicesData = [
     ],
     featuredImage: localImage(
       "/images/services/social-media.jpg",
-      "Social media design templates on devices",
+      "Sierra Link executive transportation Instagram carousel design",
     ),
     displayOrder: 2,
     featured: true,
