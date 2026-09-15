@@ -2,6 +2,7 @@ import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import connectDB from "@/lib/db";
 import { siteConfig } from "@/config/site";
+import { PORTFOLIO_SECTIONS } from "@/config/portfolio-sections";
 import {
   PortfolioProject,
   PricingPackage,
@@ -155,6 +156,7 @@ export const getFeaturedProjects = cache(
       const projects = await PortfolioProject.find({
         status: "published",
         featured: true,
+        isSample: { $ne: true },
       })
         .sort({ displayOrder: 1, createdAt: -1 })
         .limit(limit)
@@ -192,7 +194,10 @@ export const getPublishedProjects = cache(
     try {
       await connectDB();
 
-      const filter: Record<string, unknown> = { status: "published" };
+      const filter: Record<string, unknown> = {
+        status: "published",
+        isSample: { $ne: true },
+      };
       if (category !== "All") {
         filter.category = category;
       }
@@ -230,6 +235,64 @@ export const getPublishedProjects = cache(
   },
 );
 
+export interface PortfolioSectionGroup {
+  key: string;
+  title: string;
+  order: number;
+  projects: SerializedProject[];
+}
+
+export const getPortfolioSectionGroups = cache(
+  async (): Promise<PortfolioSectionGroup[]> => {
+    try {
+      await connectDB();
+
+      const projects = await PortfolioProject.find({
+        status: "published",
+        isSample: { $ne: true },
+        portfolioSection: { $exists: true, $nin: [null, ""] },
+      })
+        .sort({ sectionOrder: 1, displayOrder: 1, createdAt: -1 })
+        .lean();
+
+      const serialized = serialize(projects) as unknown as SerializedProject[];
+      const grouped = new Map<string, SerializedProject[]>();
+
+      for (const project of serialized) {
+        const key = project.portfolioSection;
+        if (!key) continue;
+        const list = grouped.get(key) ?? [];
+        list.push(project);
+        grouped.set(key, list);
+      }
+
+      const knownSections = PORTFOLIO_SECTIONS.map((section) => ({
+        key: section.key,
+        title: section.title,
+        order: section.order,
+        projects: grouped.get(section.key) ?? [],
+      })).filter((section) => section.projects.length > 0);
+
+      const knownKeys = new Set(PORTFOLIO_SECTIONS.map((section) => section.key));
+      const extraSections = [...grouped.entries()]
+        .filter(([key]) => !knownKeys.has(key))
+        .map(([key, sectionProjects], index) => ({
+          key,
+          title: key.replace(/-/g, " ").toUpperCase(),
+          order: 100 + index,
+          projects: sectionProjects,
+        }));
+
+      return [...knownSections, ...extraSections].sort(
+        (a, b) => a.order - b.order,
+      );
+    } catch (error) {
+      console.error("getPortfolioSectionGroups error:", error);
+      return [];
+    }
+  },
+);
+
 export const getProjectBySlug = cache(
   async (slug: string): Promise<SerializedProject | null> => {
     try {
@@ -237,6 +300,7 @@ export const getProjectBySlug = cache(
       const project = await PortfolioProject.findOne({
         slug,
         status: "published",
+        isSample: { $ne: true },
       }).lean();
 
       return project ? (serialize(project) as unknown as SerializedProject) : null;
@@ -260,6 +324,7 @@ export const getAdjacentProjects = cache(
       const current = await PortfolioProject.findOne({
         slug,
         status: "published",
+        isSample: { $ne: true },
       })
         .select("_id displayOrder createdAt")
         .lean();
@@ -271,6 +336,7 @@ export const getAdjacentProjects = cache(
       const [prev, next] = await Promise.all([
         PortfolioProject.findOne({
           status: "published",
+          isSample: { $ne: true },
           $or: [
             { displayOrder: { $lt: current.displayOrder } },
             {
@@ -283,6 +349,7 @@ export const getAdjacentProjects = cache(
           .lean(),
         PortfolioProject.findOne({
           status: "published",
+          isSample: { $ne: true },
           $or: [
             { displayOrder: { $gt: current.displayOrder } },
             {
@@ -413,7 +480,10 @@ export const getTestimonials = cache(
 export const getAllProjectSlugs = cache(async (): Promise<string[]> => {
   try {
     await connectDB();
-    const projects = await PortfolioProject.find({ status: "published" })
+    const projects = await PortfolioProject.find({
+      status: "published",
+      isSample: { $ne: true },
+    })
       .select("slug")
       .lean();
     return projects.map((project) => project.slug);

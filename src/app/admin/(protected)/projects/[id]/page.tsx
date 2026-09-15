@@ -38,6 +38,12 @@ function serializeProject(data: Record<string, unknown>): CreateProjectInput {
       : undefined,
     aspectRatio: data.aspectRatio ? String(data.aspectRatio) : undefined,
     isSample: Boolean(data.isSample),
+    portfolioSection: data.portfolioSection
+      ? String(data.portfolioSection)
+      : undefined,
+    sectionOrder: data.sectionOrder !== undefined
+      ? Number(data.sectionOrder)
+      : undefined,
   };
 }
 

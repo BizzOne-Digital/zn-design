@@ -176,6 +176,8 @@ export const createProjectSchema = z.object({
   seoDescription: z.string().trim().max(320).optional(),
   aspectRatio: z.string().trim().max(20).optional(),
   isSample: z.boolean().default(false),
+  portfolioSection: z.string().trim().max(80).optional(),
+  sectionOrder: z.number().int().min(0).optional(),
 });
 
 export const updateProjectSchema = createProjectSchema

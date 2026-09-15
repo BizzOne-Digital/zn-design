@@ -13,6 +13,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "seed": "tsx scripts/seed.ts",
+    "verify:portfolio": "tsx scripts/verify-portfolio-assets.ts",
     "create-admin": "tsx scripts/create-admin.ts",
     "production:check": "npm run lint && npm test && npm run build"
   },

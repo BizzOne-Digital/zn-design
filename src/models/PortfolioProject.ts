@@ -83,6 +83,8 @@ const PortfolioProjectSchema = new Schema<IPortfolioProject>(
       type: Boolean,
       default: false,
     },
+    portfolioSection: { type: String, trim: true, maxlength: 80 },
+    sectionOrder: { type: Number, default: 0 },
   },
   {
     timestamps: true,
@@ -94,6 +96,7 @@ PortfolioProjectSchema.index({ status: 1, displayOrder: 1 });
 PortfolioProjectSchema.index({ category: 1, status: 1 });
 PortfolioProjectSchema.index({ featured: 1, status: 1, displayOrder: 1 });
 PortfolioProjectSchema.index({ isSample: 1 });
+PortfolioProjectSchema.index({ portfolioSection: 1, status: 1, displayOrder: 1 });
 
 const PortfolioProject: Model<IPortfolioProject> =
   (mongoose.models.PortfolioProject as Model<IPortfolioProject>) ||

@@ -222,6 +222,8 @@ export interface IPortfolioProject {
   seoDescription?: string;
   aspectRatio?: string;
   isSample: boolean;
+  portfolioSection?: string;
+  sectionOrder?: number;
   createdAt: Date;
   updatedAt: Date;
 }

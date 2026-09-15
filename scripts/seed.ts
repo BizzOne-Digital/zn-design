@@ -2,7 +2,7 @@ import { loadEnv } from "./load-env";
 
 loadEnv();
 
-import type { ContentBlock, MediaImage } from "../src/types";
+import type { MediaImage } from "../src/types";
 
 const TIMEZONE = "America/New_York";
 
@@ -343,332 +343,34 @@ const availabilityData = {
   blackoutDates: [] as Date[],
 };
 
-const portfolioProjectsData = [
-  {
-    title: "Bloom Botanicals Rebrand",
-    slug: "bloom-botanicals-rebrand",
-    category: "Branding" as const,
-    shortDescription:
-      "A warm, modern identity for a boutique plant shop expanding to e-commerce.",
-    client: "Bloom Botanicals",
-    year: 2025,
-    services: ["Brand Identity", "Logo Design", "Packaging"],
-    coverImage: localImage(
-      "/images/portfolio/bloom-botanicals-rebrand.jpg",
-      "Botanical brand sketchbook and illustration process",
-    ),
-    gallery: [
-      unsplashImage(
-        "photo-1499951360447-b19be8fe80f5",
-        "Minimal brand stationery layout",
-      ),
-      unsplashImage(
-        "photo-1556228578-0d85b1a4d571",
-        "Product packaging on shelf",
-      ),
-    ],
-    contentBlocks: [
-      {
-        type: "text-image" as const,
-        displayOrder: 0,
-        heading: "Rooted in nature",
-        body: "The rebrand centered on organic shapes, earthy tones, and approachable typography to reflect the shop's community-focused mission.",
-        image: unsplashImage(
-          "photo-1485955900006-10f4d324d411",
-          "Greenhouse interior with plants",
-        ),
-        imagePosition: "right" as const,
-      },
-      {
-        type: "color-palette" as const,
-        displayOrder: 1,
-        heading: "Color palette",
-        colors: [
-          { name: "Moss", hex: "#4A6741" },
-          { name: "Clay", hex: "#C9A27E" },
-          { name: "Cream", hex: "#F5F0E8" },
-          { name: "Charcoal", hex: "#2B2B2B" },
-        ],
-      },
-      {
-        type: "final-result" as const,
-        displayOrder: 2,
-        heading: "Final brand suite",
-        body: "Delivered logo suite, packaging templates, and social launch kit.",
-        images: [
-          unsplashImage(
-            "photo-1618005182384-a83a8bd57fbe",
-            "Brand pattern and logo applications",
-          ),
-        ],
-      },
-    ] satisfies ContentBlock[],
-    challenge:
-      "The client needed a premium feel without losing their neighborhood charm.",
-    solution:
-      "We built a flexible identity system with soft textures and clear hierarchy across print and digital touchpoints.",
-    status: "published" as const,
-    featured: true,
-    displayOrder: 1,
-    isSample: true,
-  },
-  {
-    title: "Northwind Coffee Mark",
-    slug: "northwind-coffee-mark",
-    category: "Logo Design" as const,
-    shortDescription:
-      "A bold wordmark and badge system for a specialty coffee roaster.",
-    client: "Northwind Coffee Co.",
-    year: 2024,
-    services: ["Logo Design", "Brand Marks"],
-    coverImage: localImage(
-      "/images/portfolio/northwind-coffee-mark.jpg",
-      "ZN monogram logo on premium stationery",
-    ),
-    gallery: [
-      unsplashImage(
-        "photo-1509042239860-f550ce710b93",
-        "Coffee beans close-up",
-      ),
-    ],
-    contentBlocks: [
-      {
-        type: "typography" as const,
-        displayOrder: 0,
-        heading: "Typography",
-        samples: [
-          {
-            label: "Primary wordmark",
-            fontFamily: "Playfair Display",
-            fontWeight: "700",
-            sampleText: "Northwind",
-          },
-          {
-            label: "Supporting sans",
-            fontFamily: "Inter",
-            fontWeight: "500",
-            sampleText: "Small batch. Big character.",
-          },
-        ],
-      },
-      {
-        type: "quote" as const,
-        displayOrder: 1,
-        quote:
-          "The mark feels established and distinctive — exactly what we needed for wholesale partners.",
-        attribution: "Northwind Coffee Co. (sample client)",
-      },
-    ] satisfies ContentBlock[],
-    status: "published" as const,
-    featured: true,
-    displayOrder: 2,
-    isSample: true,
-  },
-  {
-    title: "Luxe Skincare Launch Campaign",
-    slug: "luxe-skincare-launch-campaign",
-    category: "Social Media" as const,
-    shortDescription:
-      "A cohesive Instagram and paid social kit for a clean beauty product launch.",
-    client: "Luxe Skincare (sample)",
-    year: 2025,
-    services: ["Social Media", "Visual Design"],
-    coverImage: localImage(
-      "/images/portfolio/luxe-skincare-launch-campaign.jpg",
-      "Social media design grid on tablet mockup",
-    ),
-    gallery: [
-      unsplashImage(
-        "photo-1571781926291-c477ebfd024b",
-        "Beauty product flat lay",
-      ),
-      unsplashImage(
-        "photo-1522335789203-aabd1fc54bc9",
-        "Social media content mockup",
-      ),
-    ],
-    contentBlocks: [
-      {
-        type: "two-column-images" as const,
-        displayOrder: 0,
-        leftImage: unsplashImage(
-          "photo-1596755389378-c31d21fd1273",
-          "Instagram story template mockup",
-        ),
-        rightImage: unsplashImage(
-          "photo-1612817288484-6f916006741a",
-          "Carousel post design mockup",
-        ),
-        leftCaption: "Story templates",
-        rightCaption: "Carousel frames",
-      },
-      {
-        type: "full-width-image" as const,
-        displayOrder: 1,
-        image: unsplashImage(
-          "photo-1515377905703-c4788e51af15",
-          "Campaign hero visual",
-        ),
-        caption: "Launch week hero creative",
-      },
-    ] satisfies ContentBlock[],
-    status: "published" as const,
-    featured: false,
-    displayOrder: 3,
-    isSample: true,
-  },
-  {
-    title: "Artisan Bakery Menu Suite",
-    slug: "artisan-bakery-menu-suite",
-    category: "Print" as const,
-    shortDescription:
-      "Print-ready menus, signage, and loyalty cards for a neighborhood bakery.",
-    client: "Hearth & Crumb Bakery",
-    year: 2024,
-    services: ["Print Design"],
-    coverImage: localImage(
-      "/images/portfolio/artisan-bakery-menu-suite.jpg",
-      "Branded stationery and retail collateral suite",
-    ),
-    gallery: [
-      unsplashImage(
-        "photo-1555507036-ab1f4038808a",
-        "Printed menu on table",
-      ),
-    ],
-    contentBlocks: [
-      {
-        type: "text-image" as const,
-        displayOrder: 0,
-        heading: "Readable at a glance",
-        body: "Menus were structured for quick scanning during busy morning rushes, with clear category hierarchy and appetizing photography.",
-        image: unsplashImage(
-          "photo-1486427944299-d1955d23e34d",
-          "Pastries display case",
-        ),
-        imagePosition: "left" as const,
-      },
-    ] satisfies ContentBlock[],
-    status: "published" as const,
-    featured: false,
-    displayOrder: 4,
-    isSample: true,
-  },
-  {
-    title: "Clean Label Snack Packaging",
-    slug: "clean-label-snack-packaging",
-    category: "Packaging" as const,
-    shortDescription:
-      "Shelf-ready pouch design for a better-for-you snack brand.",
-    client: "Trailbite Co.",
-    year: 2025,
-    services: ["Packaging", "Visual Design"],
-    coverImage: localImage(
-      "/images/portfolio/clean-label-snack-packaging.jpg",
-      "Luxury snack packaging pouch lineup",
-    ),
-    gallery: [
-      unsplashImage(
-        "photo-1621939514649-280e2ee25f60",
-        "Product pouch mockup",
-      ),
-    ],
-    contentBlocks: [
-      {
-        type: "full-width-image" as const,
-        displayOrder: 0,
-        image: unsplashImage(
-          "photo-1587049352846-4a222e784d38",
-          "Honey jar packaging inspiration",
-        ),
-        caption: "Material and texture direction",
-      },
-      {
-        type: "final-result" as const,
-        displayOrder: 1,
-        heading: "Production files",
-        images: [
-          unsplashImage(
-            "photo-1606313564200-e75d5e30476c",
-            "Chocolate bar packaging mockup",
-          ),
-        ],
-      },
-    ] satisfies ContentBlock[],
-    status: "published" as const,
-    featured: false,
-    displayOrder: 5,
-    isSample: true,
-  },
-  {
-    title: "Tech Conference Hero Signage",
-    slug: "tech-conference-hero-signage",
-    category: "Banners" as const,
-    shortDescription:
-      "Large-format banner system for a regional technology summit.",
-    client: "Summit East (sample)",
-    year: 2025,
-    services: ["Banner Design", "Visual Design"],
-    coverImage: localImage(
-      "/images/portfolio/tech-conference-hero-signage.jpg",
-      "Roll-up banner and event signage mockup",
-    ),
-    gallery: [
-      unsplashImage(
-        "photo-1505373877841-8d25f7d46678",
-        "Event banner mockup",
-      ),
-    ],
-    contentBlocks: [
-      {
-        type: "video-embed" as const,
-        displayOrder: 0,
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        title: "Event sizzle reel placeholder",
-        provider: "youtube" as const,
-      },
-      {
-        type: "quote" as const,
-        displayOrder: 1,
-        quote:
-          "Signage was legible from across the hall and photographed beautifully for sponsor recaps.",
-        attribution: "Summit East events team (sample)",
-      },
-    ] satisfies ContentBlock[],
-    status: "published" as const,
-    featured: false,
-    displayOrder: 6,
-    isSample: true,
-  },
-  {
-    title: "Editorial Type Collection",
-    slug: "editorial-type-collection",
-    category: "Visual Design" as const,
-    shortDescription:
-      "A series of typographic art prints blending serif letterforms with geometric color blocks.",
-    client: "ZN Design Studio",
-    year: 2025,
-    services: ["Visual Design", "Custom Graphic"],
-    coverImage: localImage(
-      "/images/portfolio/editorial-type-collection.jpg",
-      "Editorial typographic art print series",
-    ),
-    gallery: [],
-    contentBlocks: [
-      {
-        type: "quote" as const,
-        displayOrder: 0,
-        quote:
-          "Each print pairs classic serif typography with blush and gold geometric accents for a gallery-ready finish.",
-        attribution: "ZN Design",
-      },
-    ] satisfies ContentBlock[],
-    status: "published" as const,
-    featured: true,
-    displayOrder: 7,
-    isSample: true,
-  },
-];
+const portfolioProjectsData = [] as const;
+
+async function loadPortfolioProjects() {
+  const { vectorGraphicsPortfolioData } = await import(
+    "./data/vector-graphics-portfolio"
+  );
+  const { brandingWebsiteAssetPackageData } = await import(
+    "./data/branding-website-asset-package"
+  );
+  const { serendipTeaCoPortfolioData } = await import(
+    "./data/serendip-tea-co-portfolio"
+  );
+  const { comfortSolutionPortfolioData } = await import(
+    "./data/comfort-solution-portfolio"
+  );
+  const { asianFoodPortfolioData } = await import(
+    "./data/asian-food-portfolio"
+  );
+  const { brisaCafePortfolioData } = await import("./data/brisa-cafe-portfolio");
+  return [
+    ...vectorGraphicsPortfolioData,
+    ...brandingWebsiteAssetPackageData,
+    ...serendipTeaCoPortfolioData,
+    ...comfortSolutionPortfolioData,
+    ...asianFoodPortfolioData,
+    ...brisaCafePortfolioData,
+  ];
+}
 
 const testimonialsData = [
   {
@@ -766,6 +468,11 @@ async function main(): Promise<void> {
   );
   console.log("Availability rules seeded.");
 
+  const removed = await PortfolioProject.deleteMany({ isSample: true });
+  console.log(`Removed ${removed.deletedCount} sample portfolio projects.`);
+
+  const portfolioProjectsData = await loadPortfolioProjects();
+
   for (const project of portfolioProjectsData) {
     await PortfolioProject.findOneAndUpdate(
       { slug: project.slug },
@@ -773,7 +480,11 @@ async function main(): Promise<void> {
       { upsert: true, new: true, setDefaultsOnInsert: true, runValidators: true },
     );
   }
-  console.log(`Seeded ${portfolioProjectsData.length} sample portfolio projects.`);
+  if (portfolioProjectsData.length > 0) {
+    console.log(`Seeded ${portfolioProjectsData.length} portfolio projects.`);
+  } else {
+    console.log("Portfolio projects cleared — awaiting client content.");
+  }
 
   for (const testimonial of testimonialsData) {
     await Testimonial.findOneAndUpdate(
