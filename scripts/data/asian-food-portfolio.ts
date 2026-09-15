@@ -24,6 +24,8 @@ const items = [
       "Primary logo with bowl mark, pagoda motif, and halal-focused tagline.",
     alt: "Asian Food logo design",
     displayOrder: 1,
+    featured: true,
+    aspectRatio: "1/1",
   },
   {
     num: "02",
@@ -75,7 +77,7 @@ const items = [
     alt: "Asian Food promotional flyer and poster design",
     displayOrder: 6,
   },
-] as const;
+];
 
 export const asianFoodPortfolioData = items.map((item) => {
   const imagePath = `${BASE}/${item.file}`;
@@ -110,7 +112,8 @@ export const asianFoodPortfolioData = items.map((item) => {
       "Created a forest-green and cream identity with bamboo motifs, illustrated logo lockups, and consistent layouts for menus, stationery, packaging, and promotional print.",
     result: item.shortDescription,
     status: "published" as const,
-    featured: false,
+    featured: item.featured ?? false,
+    ...(item.aspectRatio ? { aspectRatio: item.aspectRatio } : {}),
     displayOrder: item.displayOrder,
     portfolioSection: SECTION,
     sectionOrder: SECTION_ORDER,

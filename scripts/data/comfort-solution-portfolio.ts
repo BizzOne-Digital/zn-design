@@ -24,6 +24,8 @@ const items = [
       "Primary logo lockup for heating, air conditioning, and electrical services.",
     alt: "Comfort Solution brand identity and primary logo",
     displayOrder: 1,
+    featured: true,
+    aspectRatio: "1/1",
   },
   {
     num: "02",
@@ -94,7 +96,7 @@ const items = [
     alt: "Comfort Solution print and packaging applications mockup",
     displayOrder: 8,
   },
-] as const;
+];
 
 export const comfortSolutionPortfolioData = items.map((item) => {
   const imagePath = `${BASE}/${item.file}`;
@@ -130,7 +132,8 @@ export const comfortSolutionPortfolioData = items.map((item) => {
       "Developed a navy-and-orange logo system with service icons, consistent typography, and applied it across print, outdoor, web, social, and packaging touchpoints.",
     result: item.shortDescription,
     status: "published" as const,
-    featured: false,
+    featured: item.featured ?? false,
+    ...(item.aspectRatio ? { aspectRatio: item.aspectRatio } : {}),
     displayOrder: item.displayOrder,
     portfolioSection: SECTION,
     sectionOrder: SECTION_ORDER,

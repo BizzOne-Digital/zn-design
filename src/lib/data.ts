@@ -149,6 +149,37 @@ export const getMergedSettings = cache(
   },
 );
 
+export const getHomeFeaturedProjects = cache(
+  async (): Promise<SerializedProject[]> => {
+    const { HOME_FEATURED_PROJECT_SLUGS } = await import(
+      "@/config/home-featured-projects"
+    );
+
+    try {
+      await connectDB();
+      const projects = await PortfolioProject.find({
+        slug: { $in: [...HOME_FEATURED_PROJECT_SLUGS] },
+        status: "published",
+        isSample: { $ne: true },
+      }).lean();
+
+      const bySlug = new Map(
+        (serialize(projects) as unknown as SerializedProject[]).map((p) => [
+          p.slug,
+          p,
+        ]),
+      );
+
+      return HOME_FEATURED_PROJECT_SLUGS.map((slug) => bySlug.get(slug)).filter(
+        Boolean,
+      ) as SerializedProject[];
+    } catch (error) {
+      console.error("getHomeFeaturedProjects error:", error);
+      return [];
+    }
+  },
+);
+
 export const getFeaturedProjects = cache(
   async (limit = 8): Promise<SerializedProject[]> => {
     try {

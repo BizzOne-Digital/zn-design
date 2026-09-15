@@ -22,6 +22,7 @@ type SerendipItem = {
   sectionOrder: number;
   displayOrder: number;
   featured?: boolean;
+  aspectRatio?: string;
 };
 
 const BASE_PACKAGING = "/images/portfolio/serendip-tea-co/packaging";
@@ -39,7 +40,7 @@ const items: SerendipItem[] = [
     portfolioSection: "serendip-brand-packaging-collection",
     sectionOrder: 3,
     displayOrder: 1,
-    featured: true,
+    featured: false,
   },
   {
     num: "02",
@@ -51,7 +52,7 @@ const items: SerendipItem[] = [
     portfolioSection: "serendip-brand-packaging-collection",
     sectionOrder: 3,
     displayOrder: 2,
-    featured: true,
+    featured: false,
   },
   {
     num: "03",
@@ -64,7 +65,7 @@ const items: SerendipItem[] = [
     portfolioSection: "serendip-brand-packaging-collection",
     sectionOrder: 3,
     displayOrder: 3,
-    featured: true,
+    featured: false,
   },
   {
     num: "04",
@@ -144,6 +145,8 @@ const items: SerendipItem[] = [
     portfolioSection: "serendip-tea-co-brand-assets",
     sectionOrder: 4,
     displayOrder: 10,
+    featured: true,
+    aspectRatio: "1/1",
   },
   {
     num: "11",
@@ -190,6 +193,7 @@ export const serendipTeaCoPortfolioData = items.map((item) => {
     result: item.shortDescription,
     status: "published" as const,
     featured: item.featured ?? false,
+    ...(item.aspectRatio ? { aspectRatio: item.aspectRatio } : {}),
     displayOrder: item.displayOrder,
     portfolioSection: item.portfolioSection,
     sectionOrder: item.sectionOrder,

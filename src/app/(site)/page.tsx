@@ -1,6 +1,6 @@
 import { buildPageMetadata } from "@/lib/seo";
 import { getMergedSettings } from "@/lib/data";
-import { getFeaturedProjects, getFeaturedServices } from "@/lib/data";
+import { getHomeFeaturedProjects, getFeaturedServices } from "@/lib/data";
 import { Hero } from "@/components/site/Hero";
 import { Manifesto } from "@/components/site/Manifesto";
 import { FeaturedWork } from "@/components/site/FeaturedWork";
@@ -24,7 +24,7 @@ export async function generateMetadata() {
 export default async function HomePage() {
   const [settings, featuredProjects, services] = await Promise.all([
     getMergedSettings(),
-    getFeaturedProjects(3),
+    getHomeFeaturedProjects(),
     getFeaturedServices(6),
   ]);
 

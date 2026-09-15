@@ -46,6 +46,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((project, index) => {
               const coverImage = resolveProjectCoverImage(project);
+              const isLogoTile = project.aspectRatio === "1/1";
               const spanClass =
                 featured.length === 3 && index === 0
                   ? "md:col-span-2 lg:col-span-1"
@@ -71,7 +72,12 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
                         alt={coverImage.alt || project.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        className={cn(
+                          "transition-transform duration-700 group-hover:scale-[1.03]",
+                          isLogoTile
+                            ? "object-contain bg-ivory p-6"
+                            : "object-cover",
+                        )}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
                       <div className="absolute inset-x-0 bottom-0 p-6 text-ivory">
