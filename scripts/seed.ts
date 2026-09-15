@@ -230,7 +230,7 @@ const servicesData = [
     ],
     featuredImage: localImage(
       "/images/services/banner.jpg",
-      "Event banner and signage design",
+      "Serendip Tea Co. website and large-format digital design mockup",
     ),
     displayOrder: 5,
     featured: false,

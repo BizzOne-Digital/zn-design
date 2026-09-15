@@ -15,8 +15,8 @@ export function ServiceSection({
   showInquireCta = true,
 }: ServiceSectionProps) {
   const featuredImage = resolveServiceFeaturedImage(service);
-  const isWideShowcase =
-    service.slug === "social-media" || service.slug === "packaging";
+  const wideShowcaseSlugs = new Set(["social-media", "packaging", "banner"]);
+  const isWideShowcase = wideShowcaseSlugs.has(service.slug);
 
   return (
     <article className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
