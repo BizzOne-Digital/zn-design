@@ -119,14 +119,14 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           </dl>
         </header>
 
-        <div className="relative mb-16 aspect-[16/9] overflow-hidden rounded-[2rem] bg-cream">
+        <div className="relative mb-16 min-h-[min(70vw,28rem)] overflow-hidden rounded-[2rem] bg-cream sm:min-h-[min(55vw,36rem)]">
           <Image
             src={coverImage.url}
             alt={coverImage.alt || project.title}
             fill
             priority
-            className="object-cover"
-            sizes="100vw"
+            className="object-contain p-4 sm:p-8"
+            sizes="(max-width: 96rem) 100vw, 96rem"
           />
         </div>
 

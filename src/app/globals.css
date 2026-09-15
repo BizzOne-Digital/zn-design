@@ -12,7 +12,8 @@
   --taupe: #9a887c;
   --background: var(--ivory);
   --foreground: var(--ink);
-  --page-gutter: clamp(1rem, 4vw, 1.5rem);
+  --page-gutter: clamp(1rem, 2.5vw, 2.25rem);
+  --container-max: 96rem;
   --header-height: 5rem;
 }
 
@@ -110,7 +111,7 @@ body {
 
 .container-editorial {
   width: 100%;
-  max-width: 80rem;
+  max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--page-gutter);
 }

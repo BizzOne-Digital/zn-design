@@ -64,7 +64,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
                     <div
                       className="relative overflow-hidden"
                       style={{
-                        aspectRatio: project.aspectRatio || "4/5",
+                        aspectRatio: project.aspectRatio || "4/3",
                       }}
                     >
                       <Image
@@ -73,10 +73,8 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className={cn(
-                          "transition-transform duration-700 group-hover:scale-[1.03]",
-                          isLogoTile
-                            ? "object-contain bg-ivory p-6"
-                            : "object-cover",
+                          "bg-cream object-contain p-5 transition-transform duration-700 group-hover:scale-[1.02] sm:p-6",
+                          isLogoTile && "bg-ivory",
                         )}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />

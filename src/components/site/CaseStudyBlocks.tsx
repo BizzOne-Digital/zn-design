@@ -34,13 +34,13 @@ export function CaseStudyBlocks({ blocks }: CaseStudyBlocksProps) {
           case "full-width-image":
             return (
               <figure key={index} className="space-y-4">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] bg-cream">
+                <div className="relative min-h-[min(75vw,32rem)] overflow-hidden rounded-[1.5rem] bg-cream sm:min-h-[28rem]">
                   <Image
                     src={block.image.url}
                     alt={block.image.alt || block.caption || "Project image"}
                     fill
-                    className="object-cover"
-                    sizes="100vw"
+                    className="object-contain p-4 sm:p-8"
+                    sizes="(max-width: 96rem) 100vw, 96rem"
                   />
                 </div>
                 {block.caption ? (
@@ -56,12 +56,12 @@ export function CaseStudyBlocks({ blocks }: CaseStudyBlocksProps) {
                 className="grid gap-6 md:grid-cols-2"
               >
                 <figure className="space-y-3">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-cream">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-cream">
                     <Image
                       src={block.leftImage.url}
                       alt={block.leftImage.alt || "Project image"}
                       fill
-                      className="object-cover"
+                      className="object-contain p-3 sm:p-5"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
@@ -72,12 +72,12 @@ export function CaseStudyBlocks({ blocks }: CaseStudyBlocksProps) {
                   ) : null}
                 </figure>
                 <figure className="space-y-3">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-cream">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-cream">
                     <Image
                       src={block.rightImage.url}
                       alt={block.rightImage.alt || "Project image"}
                       fill
-                      className="object-cover"
+                      className="object-contain p-3 sm:p-5"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
@@ -112,7 +112,7 @@ export function CaseStudyBlocks({ blocks }: CaseStudyBlocksProps) {
                     src={block.image.url}
                     alt={block.image.alt || block.heading || "Project image"}
                     fill
-                    className="object-cover"
+                    className="object-contain p-3 sm:p-5"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
@@ -241,7 +241,7 @@ export function CaseStudyBlocks({ blocks }: CaseStudyBlocksProps) {
                         src={image.url}
                         alt={image.alt || "Final result"}
                         fill
-                        className="object-cover"
+                        className="object-contain p-3 sm:p-5"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>

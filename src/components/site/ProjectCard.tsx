@@ -21,14 +21,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
       >
         <div
           className="relative overflow-hidden"
-          style={{ aspectRatio: project.aspectRatio || "4/5" }}
+          style={{ aspectRatio: project.aspectRatio || "4/3" }}
         >
           <Image
             src={coverImage.url}
             alt={coverImage.alt || project.title}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+            className="object-contain bg-cream p-4 transition-transform duration-700 group-hover:scale-[1.02] sm:p-5"
           />
         </div>
         <div className="space-y-3 p-5">

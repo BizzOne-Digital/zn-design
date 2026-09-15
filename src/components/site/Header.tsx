@@ -83,7 +83,7 @@ export function Header({ settings }: HeaderProps) {
             : "bg-ivory/80 py-3 backdrop-blur-sm md:bg-transparent md:py-6",
         )}
       >
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-3 px-[var(--page-gutter)] md:grid md:grid-cols-[1fr_auto_1fr] md:gap-4 md:px-10 lg:px-14">
+        <div className="container-editorial flex items-center justify-between gap-3 md:grid md:grid-cols-[1fr_auto_1fr] md:gap-4">
           <div className="min-w-0 shrink-0 justify-self-start">
             <Logo size="sm" showWordmark={false} variant="mark" className="md:hidden" />
             <Logo size="md" showWordmark={false} variant="mark" className="hidden md:inline-flex" />
