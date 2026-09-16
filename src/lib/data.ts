@@ -269,6 +269,11 @@ export const getPublishedProjects = cache(
 export interface PortfolioSectionGroup {
   key: string;
   title: string;
+  subtitle?: string;
+  secondaryLogo?: {
+    src: string;
+    alt: string;
+  };
   order: number;
   projects: SerializedProject[];
 }
@@ -300,6 +305,8 @@ export const getPortfolioSectionGroups = cache(
       const knownSections = PORTFOLIO_SECTIONS.map((section) => ({
         key: section.key,
         title: section.title,
+        subtitle: section.subtitle,
+        secondaryLogo: section.secondaryLogo,
         order: section.order,
         projects: grouped.get(section.key) ?? [],
       })).filter((section) => section.projects.length > 0);

@@ -2,6 +2,11 @@ export interface PortfolioSectionConfig {
   key: string;
   title: string;
   order: number;
+  subtitle?: string;
+  secondaryLogo?: {
+    src: string;
+    alt: string;
+  };
 }
 
 export const PORTFOLIO_SECTIONS: PortfolioSectionConfig[] = [
@@ -17,12 +22,22 @@ export const PORTFOLIO_SECTIONS: PortfolioSectionConfig[] = [
   },
   {
     key: "serendip-brand-packaging-collection",
-    title: "SERENDIP TEA CO. — BRAND & PACKAGING COLLECTION",
+    title: "SERENDIP TEA CO.",
+    subtitle: "BRAND & PACKAGING COLLECTION",
+    secondaryLogo: {
+      src: "/images/portfolio/serendip-tea-co/secondary-logo.png",
+      alt: "Serendip Tea Co. secondary logo",
+    },
     order: 3,
   },
   {
     key: "serendip-tea-co-brand-assets",
-    title: "SERENDIP TEA CO. — BRAND & DIGITAL ASSETS",
+    title: "SERENDIP TEA CO.",
+    subtitle: "BRAND & DIGITAL ASSETS",
+    secondaryLogo: {
+      src: "/images/portfolio/serendip-tea-co/secondary-logo.png",
+      alt: "Serendip Tea Co. secondary logo",
+    },
     order: 4,
   },
   {
@@ -43,7 +58,14 @@ export const PORTFOLIO_SECTIONS: PortfolioSectionConfig[] = [
 ];
 
 export function getPortfolioSectionTitle(key: string): string {
-  return (
-    PORTFOLIO_SECTIONS.find((section) => section.key === key)?.title ?? key
-  );
+  const section = PORTFOLIO_SECTIONS.find((item) => item.key === key);
+  if (!section) return key;
+  if (section.subtitle) {
+    return `${section.title} — ${section.subtitle}`;
+  }
+  return section.title;
+}
+
+export function getPortfolioSectionConfig(key: string): PortfolioSectionConfig | undefined {
+  return PORTFOLIO_SECTIONS.find((section) => section.key === key);
 }
