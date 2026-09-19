@@ -145,8 +145,6 @@ const items: SerendipItem[] = [
     portfolioSection: "serendip-tea-co-brand-assets",
     sectionOrder: 4,
     displayOrder: 10,
-    featured: true,
-    aspectRatio: "1/1",
   },
   {
     num: "11",
@@ -158,6 +156,8 @@ const items: SerendipItem[] = [
     portfolioSection: "serendip-tea-co-brand-assets",
     sectionOrder: 4,
     displayOrder: 11,
+    featured: true,
+    aspectRatio: "1/1",
   },
 ];
 
